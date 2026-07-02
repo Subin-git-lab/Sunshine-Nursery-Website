@@ -12,9 +12,12 @@ export default function Hero() {
       minHeight: '100vh',
       display: 'flex',
       alignItems: 'center',
-      padding: '2rem'
+      padding: '2rem 0',
+      margin: 0,
+      maxWidth: '100vw',
+      width: '100%',
     }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', display: 'flex', justifyContent: 'flex-start' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', width: '100%', display: 'flex', justifyContent: 'flex-start', boxSizing: 'border-box',padding: '0 2rem' }}>
         
         {/* Left Side Content Overlaid on top of the image field */}
         <div className="hero-text-block" style={{ maxWidth: '500px', padding: '1rem', borderRadius: '2rem' }}>
