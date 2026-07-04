@@ -1,61 +1,118 @@
 import React, { useState } from 'react';
+import logo from '../assets/logo.jpg';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav style={{ background: '#FFFFFF', padding: '1rem 2rem', borderBottom: '1px solid #F0F0F0', position: 'sticky', top: 0, zIndex: 100 }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+    /* Removed the solid white background and bottom border to let your background sky graphics shine through */
+    <nav style={{ background: 'transparent', padding: '1.75rem 2rem', position: 'absolute', top: 0, left: 0, right: 0, zIndex: 100 }}>
+      
+      <style>{`
+        .nav-link {
+          text-decoration: none;
+          color: #2D3748;
+          font-weight: 700;
+          font-family: 'Fredoka', sans-serif;
+          font-size: 1.05rem;
+          transition: color 0.2s ease;
+        }
         
-        {/* Exact Logo Match from image_60e711.jpg */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-          {/* Smiling Sun Icon Graphic */}
-          <span style={{ fontSize: '2.5rem', lineHeight: 1 }}>☀️</span>
-          <div>
-            {/* Multi-colored letter spelling */}
-            <div style={{ fontFamily: "'Fredoka', sans-serif", fontWeight: '700', fontSize: '1.4rem', letterSpacing: '0.5px', marginBottom: '2px' }}>
-              <span style={{ color: '#FF3B7A' }}>S</span>
-              <span style={{ color: '#FF9F1C' }}>U</span>
-              <span style={{ color: '#FFD166' }}>N</span>
-              <span style={{ color: '#06D6A0' }}>S</span>
-              <span style={{ color: '#118AB2' }}>H</span>
-              <span style={{ color: '#FF3B7A' }}>I</span>
-              <span style={{ color: '#FF9F1C' }}>N</span>
-              <span style={{ color: '#06D6A0' }}>E</span>
-            </div>
-            <div style={{ fontFamily: "'Fredoka', sans-serif", fontWeight: '600', fontSize: '0.85rem', letterSpacing: '3px', color: '#10B981', textAlign: 'center', lineHeight: 1 }}>
-              NURSERY
-            </div>
-          </div>
+        .nav-link:hover {
+          color: #FF3B7A;
+        }
+
+        .mobile-menu-btn {
+          display: none;
+          background: none;
+          border: none;
+          font-size: 2.2rem;
+          cursor: pointer;
+          color: #2D3748;
+        }
+
+        @media (max-width: 992px) {
+          .nav-links {
+            display: none !important;
+          }
+          .mobile-menu-btn {
+            display: block;
+          }
+          .mobile-drawer {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-top: 1rem;
+          }
+          .mobile-drawer a {
+            text-decoration: none;
+            color: #2D3748;
+            font-weight: 700;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.2rem;
+          }
+        }
+      `}</style>
+
+      <div style={{ maxWidth: '1300px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        
+        {/* Left Side: Logo & Sunshine Nursery Brand Text */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+          <img 
+            src={logo} 
+            alt="Sunshine Nursery Logo" 
+            style={{ width: '6.5rem', height: '6.5rem', objectFit: 'contain', borderRadius: '50%' }} 
+          />
         </div>
 
-        {/* Desktop Navigation Links */}
-        <div className="nav-links" style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-          <a href="#home" style={{ textDecoration: 'none', color: '#FF3B7A', fontWeight: '700', borderBottom: '3px solid #FF3B7A', paddingBottom: '4px' }}>Home</a>
-          <a href="#about" style={{ textDecoration: 'none', color: '#2D3748', fontWeight: '700' }}>About Us</a>
-          <a href="#programs" style={{ textDecoration: 'none', color: '#2D3748', fontWeight: '700' }}>Programs</a>
-          <a href="#gallery" style={{ textDecoration: 'none', color: '#2D3748', fontWeight: '700' }}>Gallery</a>
-          <a href="#contact" style={{ textDecoration: 'none', color: '#2D3748', fontWeight: '700' }}>Contact Us</a>
-          <button style={{ backgroundColor: '#FFB800', color: '#2D3748', border: 'none', padding: '0.75rem 1.75rem', borderRadius: '9999px', fontWeight: '700', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            Enroll Now ➔
+        {/* Center/Right: Desktop Navigation Links matching image_da518d.jpg */}
+        <div className="nav-links" style={{ display: 'flex', gap: '2.5rem', alignItems: 'center' }}>
+          <a href="home" className="nav-link" style={{ color: '#FF3B7A', borderBottom: '3px solid #FF3B7A', paddingBottom: '4px' }}>Home</a>
+          <a href="#about" className="nav-link">About Us</a>
+          <a href="#programs" className="nav-link">Programs</a>
+          <a href="#gallery" className="nav-link">Gallery</a>
+          <a href="#contact" className="nav-link">Contact Us</a>
+          
+          {/* Yellow Pill Button */}
+          <button style={{ 
+            backgroundColor: '#FFB800', 
+            color: '#2D3748', 
+            border: 'none', 
+            padding: '0.85rem 2rem', 
+            borderRadius: '9999px', 
+            fontFamily: "'Fredoka', sans-serif",
+            fontWeight: '700', 
+            fontSize: '1rem',
+            cursor: 'pointer', 
+            boxShadow: '0px 4px 10px rgba(255, 184, 0, 0.2)',
+            transition: 'transform 0.2s ease'
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.03)'}
+          onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+          >
+            Enroll Now
           </button>
         </div>
 
-        {/* Mobile Hamburger Trigger (Visible via responsive CSS rules below) */}
+        {/* Mobile Hamburger Menu Toggle */}
         <button className="mobile-menu-btn" onClick={() => setMenuOpen(!menuOpen)}>
-          ☰
+          {menuOpen ? '✕' : '☰'}
         </button>
       </div>
 
-      {/* Mobile Drawer Overlay */}
+      {/* Mobile Menu Dropdown */}
       {menuOpen && (
         <div className="mobile-drawer">
-          <a href="#home" onClick={() => setMenuOpen(false)}>Home</a>
+          <a href="#home" style={{ color: '#FF3B7A' }} onClick={() => setMenuOpen(false)}>Home</a>
           <a href="#about" onClick={() => setMenuOpen(false)}>About Us</a>
           <a href="#programs" onClick={() => setMenuOpen(false)}>Programs</a>
           <a href="#gallery" onClick={() => setMenuOpen(false)}>Gallery</a>
           <a href="#contact" onClick={() => setMenuOpen(false)}>Contact Us</a>
-          <button style={{ backgroundColor: '#FFB800', width: '100%', padding: '0.75rem', borderRadius: '9999px', border: 'none', fontWeight: '700' }}>Enroll Now ➔</button>
+          <button style={{ backgroundColor: '#FFB800', color: '#2D3748', width: '100%', padding: '0.85rem', borderRadius: '9999px', border: 'none', fontFamily: "'Fredoka', sans-serif", fontWeight: '700', fontSize: '1rem', marginTop: '0.5rem' }}>Enroll Now</button>
         </div>
       )}
     </nav>

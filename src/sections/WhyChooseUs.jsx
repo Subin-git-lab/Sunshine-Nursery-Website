@@ -1,94 +1,108 @@
 import React from 'react';
-import moment1 from '../assets/moment1.jpg';
-import moment2 from '../assets/moment2.jpg';
-import moment3 from '../assets/moment3.jpg';
-import moment4 from '../assets/moment4.jpg';
-import moment5 from '../assets/moment5.jpg';
-import moment6 from '../assets/moment6.jpg';
-import moment7 from '../assets/moment7.jpg';
+import love from '../assets/love.png';
+import tick from '../assets/tick.png';
+import bulb from '../assets/bulb.png';
+import people from '../assets/people.png';
+import home from '../assets/home.png';
+import studying from '../assets/studying.png';
 
-
-export default function WhyChooseUs() {
-  const metrics = [
-    { value: "150+", label: "Happy Students" },
-    { value: "15+", label: "Qualified Teachers" },
-    { value: "5+", label: "Years of Trust" },
-    { value: "100%", label: "Safe & Secure" }
-  ];
-
-  const features = [
-    { title: "Caring & Experienced Teachers", desc: "Our teachers are loving, qualified and dedicated." },
-    { title: "Safe & Secure Environment", desc: "Your child's safety and well-being are our top priority." },
-    { title: "Fun & Engaging Activities", desc: "We make learning fun with creative and interactive activities." },
-    { title: "Individual Attention", desc: "We focus on each child's growth and development." },
-    { title: "Clean & Colorful Classrooms", desc: "Bright, clean and child-friendly spaces for happy learning." }
-  ];
-
+export default function AboutSection() {
   return (
-    <section style={{ padding: '5rem 1.5rem', background: '#F0FDF4' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'start' }}>
+    <section className="py-4 bg-white" style={{ fontFamily: 'sans-serif' }}>
+      <div className="container p-4">
+        <div className="row position-relative">
         
-        {/* Left Side: Layout Statistics Counters & New Gallery Card */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
           
-          {/* Statistics Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
-            {metrics.map((m, i) => (
-              <div key={i} style={{ background: '#FFF', padding: '2rem', borderRadius: '1rem', textAlign: 'center', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)' }}>
-                <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: 'var(--primary-pink)' }}>{m.value}</div>
-                <div style={{ color: 'var(--text-dark)', fontWeight: '600' }}>{m.label}</div>
-              </div>
-            ))}
-          </div>
-
-          {/* Exact Card Match from image_6da501.png placed inside your yellow-marked zone */}
-          <div style={{ background: '#F8FAFC', borderRadius: '2rem', padding: '2rem', boxShadow: '0 10px 25px rgba(0,0,0,0.05)', border: '1px solid #EDF2F7', maxWidth: '450px', margin: '0 auto', width: '100%' }}>
+          {/* LEFT HALF COLUMN */}
+          <div className="col-12 col-md-6 ps-md-4" style={{ borderRight: '2px solid #E84E88' }}>
+            <h2 style={{ color: '#E84E88', fontWeight: '700' }} className="mb-5">
+              Why Parents Choose Us
+            </h2>
             
-            {/* Card Header Title */}
-            <h3 style={{ textAlign: 'center', color: '#ff0c6d', fontFamily: "'Fredoka', sans-serif", fontSize: '1.6rem', marginBlockEnd: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
-              Our Happy Moments <span style={{ fontSize: '1.2rem' }}>❤️</span>
-            </h3>
-
-            {/* Photo Grid Layout */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBlockEnd: '1.5rem' }}>
-              {/* Top Left Image */}
-              <div style={{ height: '140px', background: '#CBD5E1', borderRadius: '1.2rem', backgroundImage:`url(${moment1})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
-              {/* Top Right Image */}
-              <div style={{ height: '140px', background: '#CBD5E1', borderRadius: '1.2rem', backgroundImage:`url(${moment2})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
-              {/* Middle Left Image */}
-              <div style={{ height: '140px', background: '#CBD5E1', borderRadius: '1.2rem', backgroundImage: `url(${moment3})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
-              {/* Middle Right Image */}
-              <div style={{ height: '140px', background: '#CBD5E1', borderRadius: '1.2rem', backgroundImage: `url(${moment4})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
-              {/* Bottom Wide Image Spanning Both Columns */}
-              <div style={{ gridColumn: 'span 2', height: '180px', background: '#CBD5E1', borderRadius: '1.2rem', backgroundImage:`url(${moment5})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
-
-              <div style={{ height: '140px', background: '#CBD5E1', borderRadius: '1.2rem', backgroundImage: `url(${moment6})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
-              <div style={{ height: '140px', background: '#CBD5E1', borderRadius: '1.2rem', backgroundImage: `url(${moment7})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
-
-            </div>
-
-    
-
-          </div>
-
-        </div>
-
-        {/* Right Side: Reason List Elements */}
-        <div>
-          <h2 style={{ fontSize: '2.5rem', color: '#ff0c6d', marginBlockEnd: '2rem' }}>Why Parents Choose Us</h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            {features.map((f, i) => (
-              <div key={i} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                <div style={{ color: '#10B981', fontSize: '1.2rem' }}>`✔`</div>
+            <div className="d-flex flex-column gap-4">
+              {/* Item 1 */}
+              <div className="d-flex align-items-center gap-3">
+                <div style={{ width: '60px', height: '60px' }} className="rounded-circle bg-light d-flex align-items-center justify-content-center flex-shrink-0">
+                  <img src={love} alt="decoration" style={{ width: '100%', height: '100%',objectFit:'contain' }} 
+          />
+                </div>
                 <div>
-                  <h4 style={{ fontSize: '1.1rem', color: '#1A202C' }}>{f.title}</h4>
-                  <p style={{ color: 'var(--text-muted)' }}>{f.desc}</p>
+                  <h5 className="mb-1 fw-bold">Caring & Experienced Teachers</h5>
+                  <p className="text-muted mb-0">Our teachers are loving, qualified and dedicated.</p>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
 
+              {/* Item 2 */}
+              <div className="d-flex align-items-center gap-3">
+                <div style={{ width: '60px', height: '60px' }} className="rounded-circle bg-light d-flex align-items-center justify-content-center flex-shrink-0">
+                  <img src={tick} alt="decoration" style={{ width: '100%', height: '100%',objectFit:'contain' }} 
+          />
+                </div>
+                <div>
+                  <h5 className="mb-1 fw-bold">Safe & Secure Environment</h5>
+                  <p className="text-muted mb-0">Your child's safety and well-being are our top priority.</p>
+                </div>
+              </div>
+
+              {/* Item 3 */}
+              <div className="d-flex align-items-center gap-3">
+                <div style={{ width: '60px', height: '60px' }} className="rounded-circle bg-light d-flex align-items-center justify-content-center flex-shrink-0">
+                  <img src={bulb} alt="decoration" style={{ width: '100%', height: '100%',objectFit:'contain' }} 
+          />
+                </div>
+                <div>
+                  <h5 className="mb-1 fw-bold">Fun & Engaging Activities</h5>
+                  <p className="text-muted mb-0">We make learning fun with creative and interactive activities.</p>
+                </div>
+              </div>
+
+              {/* Item 4 */}
+              <div className="d-flex align-items-center gap-3">
+                <div style={{ width: '60px', height: '60px' }} className="rounded-circle bg-light d-flex align-items-center justify-content-center flex-shrink-0">
+                  <img src={people} alt="decoration" style={{ width: '100%', height: '100%',objectFit:'contain' }} 
+          />
+                </div>
+                <div>
+                  <h5 className="mb-1 fw-bold">Individual Attention</h5>
+                  <p className="text-muted mb-0">We focus on each child's growth and development.</p>
+                </div>
+              </div>
+
+              {/* Item 5 */}
+              <div className="d-flex align-items-center gap-3">
+                <div style={{ width: '60px', height: '60px' }} className="rounded-circle bg-light d-flex align-items-center justify-content-center flex-shrink-0">
+                  <img src={home} alt="decoration" style={{ width: '100%', height: '100%',objectFit:'contain' }} 
+          />
+                </div>
+                <div>
+                  <h5 className="mb-1 fw-bold">Clean & Colorful Classrooms</h5>
+                  <p className="text-muted mb-0">Bright, clean and child-friendly spaces for happy learning.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT HALF COLUMN */}
+          <div className="col-12 col-md-6 ps-md-4 ">
+            <h2 className="fw-bold mb-5">
+              <span style={{color: '#E84E88'}}>About</span> <span style={{ color: '#3182CE' }}>Sunshine</span> <span style={{ color: '#48BB78' }}>Nursery</span>
+            </h2>
+            <p className="text-muted lh-lg mb-4">
+              At Sunshine Nursery, we provide a warm, caring and stimulating environment where children learn 
+              through play, creativity, music, stories and activities. We focus on the overall development 
+              of each child - socially, emotionally, physically and intellectually.
+            </p>
+            <button className="btn text-white px-4 py-2 rounded-pill mb-4" style={{ backgroundColor: '#E84E88', fontWeight: '600' }}>
+              Learn More About Us &rarr;
+            </button>
+
+            {/* BIG ILLUSTRATION CONTAINER */}
+            <div className="w-100 bg-light rounded-4 d-flex align-items-center justify-content-center" style={{ minHeight: '300px' }}>
+              <img src={studying} style={{width: '100%', height: '100%'}}/>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
   );

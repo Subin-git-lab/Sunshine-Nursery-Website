@@ -1,38 +1,62 @@
 import React from 'react';
-import kidsDrawingImage from '../assets/3children.jpg';
+import yellow from '../assets/yellow.png';
+import pink from '../assets/pink.png';
+import blue from '../assets/blue.png';
+import green from '../assets/green.png';
 
-export default function About() {
+
+export default function StatsSection() {
+  const statsData = [
+    { id: 1, icon: yellow, number: "150+", label: "Happy Students" },
+    { id: 2, icon: pink, number: "15+", label: "Qualified Teachers" },
+    { id: 3, icon: blue, number: "5+", label: "Years of Trust" },
+    { id: 4, icon: green, number: "100%", label: "Safe & Secure" },
+  ];
+
   return (
-    <section id="about" style={{ padding: '5rem 1.5rem', background: '#FFF' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
-        
-        <div style={{ textAlign: 'center' }}>
-          {/* We apply the background image rules right here on the block-level layout div */}
-          <div 
-            style={{ 
-              width: '100%', 
-              maxWidth: '450px', 
-              height: '300px', 
-              borderRadius: '1rem', 
-              margin: '0 auto',
-              backgroundImage: `url(${kidsDrawingImage})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat'
-            }} 
-          />
-        </div>
+    <section className="py-4 bg-white" style={{fontFamily: 'sans-serif' }}>
+      <div className="container">
+        {/* Main Card Container */}
+        <div 
+          className="p-4 rounded-5" 
+          style={{ backgroundColor: '#EBF3FC',borderRadius: '30px' }}
+        >
+          <div className="row g-3 align-items-center justify-content-center">
+            {statsData.map((stat, index) => (
+              <div 
+                key={stat.id} 
+                className="col-12 col-sm-6 col-md-3 d-flex align-items-center justify-content-center gap-3 py-2"
+                style={{
+                  // Draws a crisp dashed line on desktop between the items
+                  borderRight: index !== statsData.length - 1 && window.innerWidth >= 768 
+                    ? '1.5px dashed #A0AEC0' 
+                    : 'none'
+                }}
+              >
+                {/* Image / Icon container */}
+                <div style={{ width: '65px', height: '65px' }} className="flex-shrink-0 d-flex align-items-center justify-content-center">
+                  {stat.icon && (
+                    <img 
+                      src={stat.icon} 
+                      alt={stat.label} 
+                      style={{ width: '100%', height: '100%', objectFit: 'contain' }} 
+                    />
+                  )}
+                </div>
 
-        <div>
-          <h2 style={{ fontSize: '2.5rem',color: '#ff0c6d', marginBlockEnd: '1rem' }}>About Sunshine Nursery</h2>
-          <p style={{ fontSize: '1.1rem', lineHeight: '1.6', color: '#4A5568', marginBlockEnd: '1.5rem' }}>
-            At Sunshine Nursery, we provide a warm, caring and stimulating environment where children learn through play, creativity, music, stories and activities. We focus on the overall development of each child-socially, emotionally physically and intellectually.[cite: 2]
-          </p>
-          <button style={{ backgroundColor: '#f80a0a', color: 'white', border: 'none', padding: '0.75rem 1.75rem', borderRadius: '9999px', fontWeight: '700', cursor: 'pointer' }}>
-              Learn More About Us
-            </button>
+                {/* Text Content */}
+                <div>
+                  <h3 className="fw-bold mb-0 lh-1" style={{ color: '#E84E88' }}>
+                    {stat.number}
+                  </h3>
+                  <p className="text-dark fw-bold mb-0 mt-1 small" style={{ letterSpacing: '0.3px' }}>
+                    {stat.label}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-
       </div>
     </section>
   );
