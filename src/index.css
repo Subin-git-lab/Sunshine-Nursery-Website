@@ -1,3 +1,15 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+#root {
+    overflow-x: hidden;
+    width: 100%;
+}
 /* 1. MOBILE PHONES (Default Base Styles — Up to 480px) */
 .nav-links {
   display: none; /* Hide desktop nav links */

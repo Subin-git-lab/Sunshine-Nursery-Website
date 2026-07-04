@@ -65,7 +65,7 @@ export default function Navbar() {
           <img 
             src={logo} 
             alt="Sunshine Nursery Logo" 
-            style={{ width: '6.5rem', height: '6.5rem', objectFit: 'contain', borderRadius: '50%' }} 
+            style={{ width: '6.5rem', marginLeft: '4rem', height: '6.5rem', objectFit: 'contain', borderRadius: '50%', }} 
           />
         </div>
 

@@ -22,10 +22,10 @@ export default function Hero() {
       position: 'relative',
       overflow: 'hidden'
     }}>
-      <div style={{ maxWidth: '1400px', margin: '0 auto', width: '100%', display: 'flex', justifyContent: 'flex-start', boxSizing: 'border-box',padding: '5rem' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', width: '100%', display: 'flex', justifyContent: 'flex-start', boxSizing: 'border-box',padding: '6rem' }}>
         
         {/* Left Side Content Overlaid on top of the image field */}
-        <div className="hero-text-block" style={{ maxWidth: '51.1875rem', height:'41rem', padding: '1rem', borderRadius: '2rem' }}>
+        <div className="hero-text-block" style={{ maxWidth: '51.1875rem', height:'41rem', padding: '4rem', borderRadius: '2rem' }}>
           <h1 style={{ fontFamily: "'Fredoka', sans-serif", fontSize: '3rem', color: '#2D3748', lineHeight: '1.2', marginBlockEnd: '1rem' }}>
             <b>A Happy Place </b><br />
             <b>To</b> <span style={{ color: '#3B82F6' }}><b>Learn</b></span> & <span style={{ color: '#059263' }}><b>Grow</b></span>
