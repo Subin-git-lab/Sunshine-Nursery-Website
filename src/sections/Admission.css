@@ -1,0 +1,138 @@
+.btn-text {
+  position: relative;
+  z-index: 5;
+  
+  /* The attractive charcoal black */
+  color: #1A202C; 
+  -webkit-text-fill-color: #1A202C;
+  
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: 0.3px;
+  display: inline-block;
+  
+  /* The white shadow to make it pop off the green background */
+  text-shadow: 0 1px 0 #180202, 
+               0 2px 4px rgba(255, 255, 255, 0.8);
+}
+.gradient-text {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  
+  /* Apply the exact color grade gradient */
+  background: linear-gradient(to bottom, #CBE86B 0%, #92D050 50%, #54A737 100%);
+  
+  /* Modern CSS trick to clip the gradient inside the letters */
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  /* Makes the inner part of the letters transparent so the gradient shows through */
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  
+  /* Optional: A very tiny dark outline to make the light lime-green top readable if needed */
+  filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.15));
+  
+  display: inline-block;
+}
+
+.admission-btn-link {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.admission-btn {
+  background:   linear-gradient(135deg, #09d52f 0%, #aed83b 100%);
+  color: #2D3748; /* Dark grey text for flawless readability over yellow */
+  
+  /* Rest of your existing padding, radius, font etc... */
+  padding: 0.85rem 2.5rem; 
+  border-radius: 9999px;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border: none;
+  position: relative;
+  overflow: hidden; 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Matching soft yellow glow shadow */
+  box-shadow: 0 6px 20px rgba(4, 239, 63, 0.45);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-text {
+  position: relative;
+  z-index: 5;
+  /* No text shadow needed for dark text */
+}
+
+/* Hover effect */
+.admission-btn:hover {
+  background: linear-gradient(to bottom, #CBE86B 0%, #92D050 50%, #54A737 100%);
+  transform: translateY(-3px);
+}
+
+/* --- THE RAIN ENGINE --- */
+.toy-rain-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.toy {
+  position: absolute;
+  font-size: 1.2rem;
+  opacity: 0;
+  animation: toy-rain 3s infinite linear;
+  
+  /* ✨ IMPROVEMENT: Gives the emojis a crisp shadow so they stay bright over the green */
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* --- TOY TIMINGS & POSITIONS --- */
+.toy.book { left: 12%; animation-delay: 0s; }
+.toy.palette { left: 78%; animation-delay: 0.8s; }
+.toy.blocks { left: 32%; animation-delay: 1.6s; font-size: 1rem; }
+.toy.rocket { left: 60%; animation-delay: 2.4s; }
+
+
+/* Speeds up the rain slightly when hovered */
+.admission-btn:hover .toy {
+  animation-duration: 2s;
+}
+
+.admission-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 179, 60, 0.4);
+}
+
+/* ==========================================================================
+   INFINITE RAIN KEYFRAMES
+   ========================================================================== */
+@keyframes toy-rain {
+  0% {
+    top: -25px;
+    opacity: 0;
+    transform: rotate(0deg) scale(0.7);
+  }
+  30% {
+    opacity: 0.85; /* 💡 INCREASED OPACITY: Emojis are now much clearer and colorful */
+  }
+  70% {
+    opacity: 0.85;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+    transform: rotate(360deg) scale(1.1); /* Gently spins and enlarges as it falls */
+  }
+}

@@ -1,10 +1,10 @@
 import React from 'react';
-import slide from '../assets/slide.jpg';
-import teddy from '../assets/teddy.png';
-import corn from '../assets/corn.png';
-import abc from '../assets/abc.png';
-import drawing from '../assets/drawing.png';
-import music from '../assets/music.png';
+import slide from '../assets/HeroImages/slide.jpg';
+import teddy from '../assets/HeroImages/teddy.png';
+import corn from '../assets/HeroImages/corn.png';
+import abc from '../assets/HeroImages/abc.png';
+import drawing from '../assets/HeroImages/drawing.png';
+import music from '../assets/HeroImages/music.png';
 
 export default function Programs() {
   const matchingPrograms = [

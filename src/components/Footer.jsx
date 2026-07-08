@@ -1,11 +1,13 @@
 import React from 'react';
-import footerLogo from '../assets/footerlogo.png'; 
-import whatsapp from '../assets/whatsapp.png';
-import facebook from '../assets/facebook.png';
-import insta from '../assets/insta.png';
+import footerLogo from '../assets/HeroImages/footerlogo.png'; 
+import whatsapp from '../assets/HeroImages/whatsapp.png';
+import facebook from '../assets/HeroImages/facebook.png';
+import insta from '../assets/HeroImages/insta.png';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 
 export default function FooterSection() {
+  const navigate = useNavigate();
   return (
     <footer className=" bg-white" style={{ fontFamily: 'sans-serif' }}>
       <div className="container-fluid px-1">
@@ -28,9 +30,17 @@ export default function FooterSection() {
             </p>
             {/* Social Icons (Colored to match image_f99be0.png) */}
             <div className="d-flex gap-2 justify-content-center fs-5">
-  <span style={{ display: 'inline-block', width: '24px', height: '24px' }}>
-    <img src={whatsapp} alt="whatsapp" className="w-100 h-100" style={{ objectFit: 'contain' }} />
-  </span> 
+              <a 
+    href="https://wa.me/9048677171" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="d-flex align-items-center"
+    style={{ textDecoration: 'none', color: 'inherit' }}
+  >
+    <span style={{ display: 'inline-block', width: '24px', height: '24px' }}>
+      <img src={whatsapp} alt="whatsapp" className="w-100 h-100" style={{ objectFit: 'contain' }} />
+    </span>
+  </a>
   <span style={{ display: 'inline-block', width: '24px', height: '24px' }}>
     <img src={facebook} alt="facebook" className="w-100 h-100" style={{ objectFit: 'contain' }} />
   </span> 
@@ -50,12 +60,12 @@ export default function FooterSection() {
           >
             <h5 className="fw-bold text-dark mb-3" style={{ fontSize: '1.1rem' }}>Quick Links</h5>
             <ul className="list-unstyled d-flex flex-column gap-2 fw-medium" style={{ color: '#4A5568', fontSize: '0.95rem' }}>
-              <li style={{ cursor: 'pointer' }}>Home</li>
-              <li style={{ cursor: 'pointer' }}>About Us</li>
-              <li style={{ cursor: 'pointer' }}>Programs</li>
-              <li style={{ cursor: 'pointer' }}>Gallery</li>
-              <li style={{ cursor: 'pointer' }}>Contact Us</li>
-            </ul>
+        <li style={{ cursor: 'pointer' }} onClick={() => { navigate('/'); window.scrollTo(0, 0);}}>Home</li>
+        <li style={{ cursor: 'pointer' }} onClick={() => { navigate('/about'); window.scrollTo(0, 0);}}>About Us</li>
+        <li style={{ cursor: 'pointer' }} onClick={() => { navigate('/programs'); window.scrollTo(0, 0);}}>Programs</li>
+        <li style={{ cursor: 'pointer' }} onClick={() => { navigate('/gallery'); window.scrollTo(0, 0);}}>Gallery</li>
+        <li style={{ cursor: 'pointer' }} onClick={() => { navigate('/contactus'); window.scrollTo(0, 0);}}>Contact Us</li>
+      </ul>
           </div>
 
           {/* COLUMN 3: OUR PROGRAMS */}
@@ -84,13 +94,14 @@ export default function FooterSection() {
               {/* Phone Row */}
               <div className="d-flex align-items-center gap-2">
                 <span style={{ color: '#E84E88', fontSize: '1.1rem' }}>📞</span>
-                <span>+91 98765 43210</span>
+                <a href="tel:+919048677171" style={{ textDecoration: 'none', color: 'inherit' }}>+91 9048677171</a>
               </div>
 
               {/* Email Row */}
               <div className="d-flex align-items-center gap-2">
                 <span style={{ color: '#E84E88', fontSize: '1.1rem' }}>✉️</span>
-                <span>info@sunshinenursery.com</span>
+                <a href="mailto:info@sunshinenursery.com"
+                style={{ textDecoration: 'none', color: 'inherit' }}>info@sunshinenursery.com</a>
               </div>
 
               {/* Address Row */}

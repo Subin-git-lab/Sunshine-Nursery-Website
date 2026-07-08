@@ -1,10 +1,10 @@
 import React from 'react';
-import love from '../assets/love.png';
-import tick from '../assets/tick.png';
-import bulb from '../assets/bulb.png';
-import people from '../assets/people.png';
-import home from '../assets/home.png';
-import studying from '../assets/studying.png';
+import love from '../assets/HeroImages/love.png';
+import tick from '../assets/HeroImages/tick.png';
+import bulb from '../assets/HeroImages/bulb.png';
+import people from '../assets/HeroImages/people.png';
+import home from '../assets/HeroImages/home.png';
+import studying from '../assets/HeroImages/studying.png';
 
 export default function AboutSection() {
   return (

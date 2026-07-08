@@ -1,7 +1,7 @@
 import React from 'react';
-import arun from '../assets/arun.png';
-import sneha from '../assets/sneha.png';
-import priya from '../assets/priya.png';
+import arun from '../assets/HeroImages/arun.png';
+import sneha from '../assets/HeroImages/sneha.png';
+import priya from '../assets/HeroImages/priya.png';
 
 export default function TestimonialsSection() {
   return (

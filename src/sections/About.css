@@ -1,0 +1,195 @@
+/* ===========================
+   SECTION
+=========================== */
+
+.stats-section{
+    padding:40px 0;
+    background:#fff;
+    font-family:'Poppins',sans-serif;
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.stats-card{
+    background:#EBF3FC;
+    border-radius:30px;
+    padding:35px 20px;
+}
+
+/* ===========================
+   ITEM
+=========================== */
+
+.stats-item{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    padding:20px;
+    text-align:left;
+}
+
+/* Desktop Divider */
+
+@media(min-width:768px){
+
+.border-desktop{
+    border-right:2px dashed #A0AEC0;
+}
+
+}
+
+/* ===========================
+   ICON
+=========================== */
+
+.stats-icon{
+    width:65px;
+    height:65px;
+    flex-shrink:0;
+}
+
+.stats-icon img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+/* ===========================
+   TEXT
+=========================== */
+
+.stats-number{
+    font-size:2rem;
+    font-weight:700;
+    color:#E84E88;
+    margin:0;
+    line-height:1;
+}
+
+.stats-label{
+    margin-top:8px;
+    margin-bottom:0;
+    font-size:16px;
+    font-weight:600;
+    color:#222;
+}
+
+/* =====================================
+        TABLET
+===================================== */
+
+@media(max-width:991px){
+
+.stats-card{
+
+    padding:30px 15px;
+
+}
+
+.stats-number{
+
+    font-size:1.8rem;
+
+}
+
+.stats-label{
+
+    font-size:15px;
+
+}
+
+.stats-icon{
+
+    width:58px;
+    height:58px;
+
+}
+
+}
+
+/* =====================================
+            MOBILE
+===================================== */
+
+@media(max-width:767px){
+
+.stats-item{
+
+    border-right:none;
+    border-bottom:1px dashed #A0AEC0;
+
+}
+
+.stats-item:last-child{
+
+    border-bottom:none;
+
+}
+
+.stats-card{
+
+    padding:25px 15px;
+    border-radius:20px;
+
+}
+
+.stats-number{
+
+    font-size:1.6rem;
+
+}
+
+.stats-label{
+
+    font-size:14px;
+
+}
+
+.stats-icon{
+
+    width:52px;
+    height:52px;
+
+}
+
+}
+
+/* =====================================
+        SMALL MOBILE
+===================================== */
+
+@media(max-width:576px){
+
+.stats-item{
+
+    flex-direction:column;
+    text-align:center;
+    gap:12px;
+    padding:22px 15px;
+
+}
+
+.stats-number{
+
+    font-size:1.5rem;
+
+}
+
+.stats-label{
+
+    font-size:14px;
+    line-height:1.5;
+
+}
+
+.stats-icon{
+
+    width:48px;
+    height:48px;
+
+}
+
+}

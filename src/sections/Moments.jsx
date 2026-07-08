@@ -1,9 +1,9 @@
 import React from 'react';
-import moment1 from '../assets/moment1.png';
-import moment2 from '../assets/moment2.png';
-import moment3 from '../assets/moment3.png';
-import moment4 from '../assets/moment4.png';
-import moment5 from '../assets/moment5.png';
+import moment1 from '../assets/HeroImages/moment1.png';
+import moment2 from '../assets/HeroImages/moment2.png';
+import moment3 from '../assets/HeroImages/moment3.png';
+import moment4 from '../assets/HeroImages/moment4.png';
+import moment5 from '../assets/HeroImages/moment5.png';
 
 export default function HappyMoments() {
   return (

@@ -1,13 +1,14 @@
 import React from 'react';
+import '../sections/Admission.css';
 
-import heroIllustration from '../assets/herobackground.jpg'; 
-import wave from '../assets/wave.jpg';
+import heroIllustration from '../assets/HeroImages/herobackground.jpg'; 
+import wave from '../assets/HeroImages/wave.jpg';
+import { Link } from 'react-router-dom';
 
 export default function Hero() {
   return (
     <section id="home" className="hero-section" style={{
       backgroundImage: `url(${heroIllustration})`,
-      id:"home",
       backgroundSize: 'cover',
       backgroundPosition: 'bottom center',
       backgroundRepeat: 'no-repeat',
@@ -34,13 +35,23 @@ export default function Hero() {
             <b>Inspiring young minds to explore, imagine and achieve every day.</b>
           </p>
           <div style={{ display: 'flex', gap: '3.75rem', flexWrap: 'wrap' }}>
-            <button style={{ backgroundColor: '#f80a0a', color: 'white', border: 'none', padding: '0.75rem 1.75rem', borderRadius: '9999px', fontWeight: '700', cursor: 'pointer' }}>
-              Enroll Now ➔
-            </button>
-            <button style={{ backgroundColor: 'white', color: '#2169dc', border: '2px solid #3B82F6', padding: '0.75rem 1.75rem', borderRadius: '9999px', fontWeight: '700', cursor: 'pointer' }}>
-              Contact Us ➔
-            </button>
-          </div>
+  <Link to="/contactus" className="admission-btn-link">
+    <button className="admission-btn">
+      
+      {/* Container for the falling/raining toys */}
+      <div className="toy-rain-container">
+        <span className="toy book">📖</span>
+        <span className="toy palette">🎨</span>
+        <span className="toy blocks">🧱</span>
+        <span className="toy rocket">🚀</span>
+
+
+      </div>
+
+      <span className="btn-text">Admission Open ➔</span>
+    </button>
+  </Link>
+</div>
         </div>
 
       </div>
