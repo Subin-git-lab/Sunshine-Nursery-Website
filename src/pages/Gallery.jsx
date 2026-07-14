@@ -22,8 +22,8 @@ import gal12 from '../assets/GalleryImages/gal12.png';
 
 import About from "../sections/About";
 import CTA from '../sections/CTA';
+import './Gallery.css'; // Ensure you import the newly created stylesheet!
 
-// Connected your imported image variables (gal1, gal2, etc.) to the array
 const galleryItems = [
   { id: 1, category: 'class room', label: 'Class room activities', img: gal1 },
   { id: 2, category: 'class room', label: 'Class room activities', img: gal2 },
@@ -44,8 +44,8 @@ function Gallery() {
 
   return (
     <>
-      <div style={{ 
-        background: 'linear-gradient(95deg, #A8D6FF 0%, #95FB99 100%)',
+      <div className="gallery-hero-wrapper" style={{ 
+        background: 'linear-gradient(95deg, #A8D6FF 100%, #95FB99 0%)',
         paddingTop: '250px', 
         paddingBottom: '100px', 
         fontFamily: "'Fredoka', sans-serif", 
@@ -54,19 +54,20 @@ function Gallery() {
         minHeight: '95vh'
       }}>
         <div className="container">
-          <div className="row align-items-center">
+          <div className="row align-items-center gallery-hero-row">
             
             {/* LEFT COLUMN */}
-            <div className="col-12 col-md-6 position-relative mb-5 mb-md-0">
+            <div className="col-12 col-md-6 position-relative mb-5 mb-md-0 gallery-text-panel">
               {sun && (
                 <img 
                   src={sun} 
                   alt="Sun decoration" 
+                  className="gallery-decor-sun"
                   style={{ position: 'absolute', top: '-60px', left: '530px', width: '100px', height: '100px' }} 
                 />
               )}
 
-              <h2 className="display-6 fw-bold text-dark p-3 m-0">OUR <br/>
+              <h2 className="display-6 fw-bold text-dark p-3 m-0 gallery-title">OUR <br/>
                 <span style={{ color: '#FF3B7A' }}>G</span>
                 <span style={{ color: '#5FAF37' }}>a</span>
                 <span style={{ color: '#FF3B7A' }}>ll</span>
@@ -75,15 +76,15 @@ function Gallery() {
                 <span style={{ color: '#5FAF37' }}>y</span>
               </h2>
 
-              <p className="fs-5 fw-bold p-3" style={{color:'#000000'}}>
+              <p className="fs-5 fw-bold p-3 gallery-lead-text" style={{color:'#000000'}}>
                 A glimpse into the joyful learning, <br/>
-                laughter, and love that fill our days.
+                A laughter, and love that fill our days.
               </p>
             </div>
 
             {/* RIGHT COLUMN */}
-            <div className="col-12 col-md-6 p-0 d-flex justify-content-end">
-              <div style={{
+            <div className="col-12 col-md-6 p-0 d-flex justify-content-end gallery-image-panel">
+              <div className="gallery-kids-mask" style={{
                 width: '100%',
                 maxWidth: '750px',
                 position: 'absolute',
@@ -99,6 +100,7 @@ function Gallery() {
                 <img 
                   src={children}
                   alt="Children playing" 
+                  className="gallery-kids-img"
                   style={{ 
                     width: '100%', 
                     height: '100%', 
@@ -112,12 +114,12 @@ function Gallery() {
           </div>
 
           {/* Left Grass */}
-          <div style={{ position: 'absolute', top: '515px', left: '1px', zIndex: 5 }}>
+          <div className="gallery-decor-flower1" style={{ position: 'absolute', top: '515px', left: '1px', zIndex: 5 }}>
             <img src={flower1} alt="grass left" style={{ width: '100%', height: '150px' }} />
           </div>
 
           {/* Center Grass */}
-          <div style={{ position: 'absolute', top: '520px', left: '750px', zIndex: '5' }}>
+          <div className="gallery-decor-flower2" style={{ position: 'absolute', top: '520px', left: '750px', zIndex: '5' }}>
             <img src={flower2} alt="grass center" style={{ width: '100%', height: '150px' }} />
           </div>
         </div>
@@ -127,13 +129,14 @@ function Gallery() {
           <img 
             src={wave} 
             alt="wave decor" 
+            className="gallery-bottom-wave"
             style={{
               position: 'absolute',
               bottom: '-2px', 
               left: '0',
               width: '100%',
               height: 'auto',
-              filter: 'drop-shadow(10px -8px 0px #7cdf7f)',
+              filter: 'drop-shadow(0px -10px 0px #7cdf7f)',
               zIndex: '5'
             }}
           />
@@ -150,7 +153,7 @@ function Gallery() {
         <div className="container">
           
           {/* THE FILTER BUTTON BAR */}
-          <div className="d-flex flex-wrap justify-content-center gap-2 mb-5">
+          <div className="d-flex flex-wrap justify-content-center gap-2 mb-5 gallery-filter-bar">
             {['All', 'class room', 'Activity', 'Playtime', 'Events', 'Celebrations', 'Outdoors'].map((cat) => (
               <button 
                 key={cat}
@@ -171,14 +174,12 @@ function Gallery() {
           </div>
 
           {/* THE AUTOMATIC FILTER GRID */}
-          <div className="row g-4 justify-content-center">
+          <div className="row g-4 justify-content-center gallery-grid">
             {galleryItems
-              // Keeps items matching clicked button, or keeps all items if 'All' is active
               .filter(item => activeCategory === 'All' || item.category === activeCategory)
-              // Loops through remaining images to display them dynamically
               .map((item) => (
-                <div key={item.id} className="col-12 col-sm-6 col-lg-3 text-center">
-                  <div style={{ width: '100%', aspectRatio: '1/1', overflow: 'hidden', borderRadius: '20px', backgroundColor: '#f0f0f0' }}>
+                <div key={item.id} className="col-12 col-sm-6 col-lg-3 text-center gallery-card-col">
+                  <div className="gallery-card-thumb" style={{ width: '100%', aspectRatio: '1/1', overflow: 'hidden', borderRadius: '20px', backgroundColor: '#f0f0f0' }}>
                     <img src={item.img} alt={item.label} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   </div>
                   <p className="fw-bold text-dark mt-2 small">{item.label}</p>

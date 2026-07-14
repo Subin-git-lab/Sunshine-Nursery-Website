@@ -1,72 +1,93 @@
-import React, { useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
-import logo from '../assets/HeroImages/logo.jpg';
+import React, { useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import "./Navbar.css";
 
+import logo from "../assets/HeroImages/logo.jpg";
 
 export default function Navbar() {
   const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const isHomePage = location.pathname === '/' || location.pathname === '/home';
-  const navbarBackground = isHomePage ? 'transparent' : '#78DAFC';
+  const isHomePage =
+    location.pathname === "/" || location.pathname === "/home";
 
   return (
-    <nav style={{ 
-      background: navbarBackground, 
-      padding: '1.75rem 2rem', 
-      position: 'absolute', 
-      top: 0, 
-      left: 0, 
-      right: 0, 
-      zIndex: 100,
-      transition: 'background 0.3s ease'
-    }}>
-      
-      <style>{`
-        .nav-link {
-          text-decoration: none;
-          color: #2D3748;
-          font-weight: 790;
-          font-family: 'Fredoka', sans-serif;
-          font-size: 1.2rem;
-          padding-bottom: 4px;
-          border-bottom: 3px solid transparent;
-          transition: all 0.2s ease;
-        }
-        
-        /* This class is automatically applied by React Router when the link is active! */
-        .nav-link.active {
-          color: #FF3B7A !important;
-          border-bottom: 3px solid #FF3B7A !important;
-        }
+    <nav
+      className="navbar"
+      style={{
+        background: isHomePage ? "transparent" : "#78DAFC",
+      }}
+    >
+      <div className="navbar-container">
 
-        .nav-link:hover {
-          color: #FF3B7A;
-        }
-      `}</style>
+        {/* Logo */}
 
-      <div style={{ maxWidth: '1300px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        
-        {/* Left Side: Logo */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
-          <img 
-            src={logo} 
-            alt="Sunshine Nursery Logo" 
-            style={{ width: '8.5rem', marginLeft: '3rem', height: '8.5rem', objectFit: 'contain', borderRadius: '50%' }} 
-          />
+        <div class="logo-3d-container">
+  <div class="logo-3d-card">
+    <img src={logo} alt="Sunshine Nursery Logo" class="logo-front" />
+    
+    <div class="logo-depth"></div>
+  </div>
+</div>
+
+        {/* Hamburger */}
+
+        <div
+          className={`hamburger ${menuOpen ? "active" : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
 
-        {/* Center/Right: Navigation Links using NavLink */}
-        <div className="nav-links">
-          
-          {/* end ensures "/" only highlights when exactly on the home page */}
-          <NavLink to="/" end className="nav-link">Home</NavLink>
-          <NavLink to="/about" className="nav-link">About Us</NavLink>
-          
-          <NavLink to="/programs" className="nav-link">Programs</NavLink>
-          <NavLink to="/gallery" className="nav-link">Gallery</NavLink>
-          <NavLink to="/contactus" className="nav-link">Contact Us</NavLink>
+        {/* Navigation */}
+
+        <div className={`nav-links ${menuOpen ? "open" : ""}`}>
+
+          <NavLink
+            to="/"
+            end
+            className="nav-link"
+            onClick={() => setMenuOpen(false)}
+          >
+            Home
+          </NavLink>
+
+          <NavLink
+            to="/about"
+            className="nav-link"
+            onClick={() => setMenuOpen(false)}
+          >
+            About Us
+          </NavLink>
+
+          <NavLink
+            to="/programs"
+            className="nav-link"
+            onClick={() => setMenuOpen(false)}
+          >
+            Programs
+          </NavLink>
+
+          <NavLink
+            to="/gallery"
+            className="nav-link"
+            onClick={() => setMenuOpen(false)}
+          >
+            Gallery
+          </NavLink>
+
+          <NavLink
+            to="/contactus"
+            className="nav-link"
+            onClick={() => setMenuOpen(false)}
+          >
+            Contact Us
+          </NavLink>
 
         </div>
+
       </div>
     </nav>
   );

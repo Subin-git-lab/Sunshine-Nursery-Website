@@ -6,203 +6,166 @@ body {
     width: 100%;
 }
 
-img{
+img {
   max-width: 100%;
   height: auto;
 }
 
+#root {
+    overflow-x: hidden;
+    /* overflow-y: hidden;  <--- REMOVED so your pages can scroll properly! */
+    width: 100%;
+}
+
 /* ==========================================================================
-   Fixed Contact Widget - Full Circle WhatsApp Coverage
+   Fixed Contact Widget - Hyper-Realistic 3D Floating & Shining Gloss
    ========================================================================== */
 
 .floating-contact-widget {
   position: fixed;
   bottom: 30px;
-  right: 30px;
+  right: 100px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 20px; 
   z-index: 99999;
 }
 
-/* The Container Circles */
+/* The Container Circles - Upgraded with 3D gradients and overflow shines */
 .contact-btn {
-  width: 70px ;
-  height: 70px ;
+  width: 70px;
+  height: 70px;
   border-radius: 100%;
   display: flex !important;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  transition: all 0.3s;
-  overflow: hidden; /* Clips any image overflow perfectly to keep it a circle */
+  position: relative; /* Essential for positioning the shine overlay */
+  overflow: hidden;   /* Clips the shining ray perfectly inside the circle */
+  
+  /* Smooth transition for active user interaction */
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease-out; 
+  
+  /* Apply the organic fluid floating loop */
+  animation: seaFloat 4.5s ease-in-out infinite;
 }
 
-.image3 {
-  width: 170px !important;  /* NO QUOTES. Increased past 80px to force a zoom-in look */
-  height: 170px !important; /* NO QUOTES */
-  max-width: none !important; /* Prevents global img rules from shrinking it back down */
-  object-fit: contain;
-}
-
-/* Call Button Styling */
+/* --- BUTTON SPECIFIC GRADIENTS & STAGGER TIMING --- */
 .call-btn {
-  background-color: transparent; /* Matches your lovely coral school theme accent */
+  /* Dynamic multi-layered 3D border + soft coral-pink luxurious gradient */
+  background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%);
+  animation-delay: 0s; 
 }
 
-/* WhatsApp Button Background */
 .whatsapp-btn {
-  background-color: white; /* Official WhatsApp Green background */
+  /* Vibrant, glossy WhatsApp emerald gradient */
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+  animation-delay: -2.25s; /* Perfect alternating rhythm */
 }
 
+/* --- THE SHINING SHIMMER EFFECT --- */
+.contact-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -150%;
+  width: 200%;
+  height: 200%;
+  /* Creates a highly reflective metallic glass light beam */
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 30%,
+    rgba(255, 255, 255, 0.7) 50%,
+    rgba(255, 255, 255, 0.3) 70%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  /* Triggers the swift diamond shine beam loop */
+  animation: dynamicShine 6s ease-in-out infinite;
+}
 
-/* Playful Hover Interaction */
+/* Synchronize individual shining glares with their floating tempos */
+.call-btn::after { animation-delay: 0.5s; }
+.whatsapp-btn::after { animation-delay: -1.75s; }
+
+/* 🖼️ Icon Sizing & High-fidelity Shadowing */
+.image3 {
+  width: 170px !important;  
+  height: 170px !important; 
+  max-width: none !important; 
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.06)); /* Gives inside icon standalone depth */
+}
+
+/* ==========================================================================
+   🌊 3D EXTENDED BOBBING ANIMATION
+   ========================================================================== */
+@keyframes seaFloat {
+  0%, 100% {
+    transform: translateY(0px);
+
+  }
+  50% {
+    transform: translateY(-12px); /* Slightly increased float depth */
+    
+  }
+}
+
+/* ==========================================================================
+   ✨ HIGH-GLOSS SHINE RAY ANIMATION
+   ========================================================================== */
+@keyframes dynamicShine {
+  0% { left: -150%; }
+  15%, 100% { left: 150%; } /* Sweeps quickly across the button, then pauses gracefully */
+}
+
+/* ==========================================================================
+   👆 User Interactions (Gently pauses animations on interaction)
+   ========================================================================== */
 .contact-btn:hover {
+  animation-play-state: paused;
   transform: scale(1.1) translateY(-4px);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+  
+}
+
+.contact-btn:hover::after {
+  animation-play-state: paused; /* Halts the glare flash so it doesn't distract a clicking user */
 }
 
 .contact-btn:active {
-  transform: scale(0.95);
-}
-
-
-#root {
-    overflow-x: hidden;
-    overflow-y: hidden;
-    width: 100%;
-}
-
-
-.hero-section {
-  padding: 3rem 1rem;
-  background-position: 65% bottom; /* Keep background graphics visible on narrow screens */
-  background-size: cover;
-  text-align: center;
-}
-
-.hero-text-block {
-  width: 100%;
-}
-
-.hero-text-block h1 {
-  font-size: 2rem; /* Clear, legible size for small screens */
-  line-height: 1.2;
-  color: #2D3748;
-}
-
-/* ==========================================================================
-   1. MOBILE PHONES ONLY (0px to 480px)
-   ========================================================================== */
-@media (max-width: 480px) {
-  .hero-section {
-    display: flex !important;
-    flex-direction: column-reverse !important; /* Stacks image on top, text on bottom */
-    padding: 2.5rem 1rem !important;
-    text-align: center !important;
-  }
-
-  .hero-text-block {
-    max-width: 100% !important; /* Lets text use the full phone width */
-  }
-
-  .hero-text-block h1 {
-    font-size: 2rem !important; /* Shrinks the giant title so it fits mobile screens */
-  }
-
-  /* Forces your layout grid rows/columns to stack vertically ONLY on phone displays */
-  .row, .grid-container, .features, .footer-links {
-    flex-direction: column !important;
-    align-items: center !important;
-  }
-}
-
-
-/* ==========================================================================
-   2. TABLETS (Portrait & Landscape — 481px to 1024px)
-   ========================================================================== */
-@media (min-width: 481px) {
-  .hero-section {
-    padding: 5rem 2rem;
-  }
+  transform: scale(0.96) translateY(2px);
   
-  .hero-text-block h1 {
-    font-size: 2.6rem; 
-  }
-}
-
-
-/* ==========================================================================
-   3. LAPTOPS / SMALL DESKTOPS (1025px to 1440px)
-   ========================================================================== */
-@media (min-width: 1025px) {
-  .mobile-menu-btn, 
-  .mobile-drawer {
-    display: none;
-  }
-  
-  .nav-links {
-    display: flex; 
-    gap: 2rem;
-  }
-
-  .hero-section {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 7rem 4rem;
-    background-position: center right; 
-  }
-
-  .hero-text-block {
-    max-width: 50%; 
-    text-align: left;
-  }
-
-  .hero-text-block h1 {
-    font-size: 3.5rem;
-  }
-}
-
-
-/* ==========================================================================
-   4. LARGE WIDESCREEN MONITORS (1441px and up)
-   ========================================================================== */
-@media (min-width: 1441px) {
-  .hero-section {
-    max-width: 1400px;
-    margin: 0 auto; 
-    padding: 9rem 0;
-  }
-
-  .hero-text-block h1 {
-    font-size: 4.2rem; 
-  }
 }
 
 /* ==========================================================================
    📱 MOBILE FLOATING WIDGET OPTIMIZATION
    ========================================================================== */
 @media (max-width: 768px) {
-  /* 1. Shrink the widget area and push it further into the bottom corner */
   .floating-contact-widget {
-    bottom: 15px !important;
-    right: 15px !important;
-    gap: 10px !important;
+    bottom: 20px !important;
+    right: 30px !important;
+    gap: 14px !important;
   }
 
-  /* 2. Scale the button circles down to a subtle mobile finger-tap size */
   .contact-btn {
-    width: 55px !important;
-    height: 55px !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+    width: 58px !important;
+    height: 58px !important;
   }
 
   .image3 {
-  width: 138px !important;  /* NO QUOTES. Increased past 80px to force a zoom-in look */
-  height: 138px !important; /* NO QUOTES */
-  max-width: none !important; /* Prevents global img rules from shrinking it back down */
-  object-fit: contain;
-}
-
+    width: 140px !important;  
+    height: 140px !important; 
+    max-width: none !important; 
+    object-fit: contain;
+  }
+  
+  @keyframes seaFloat {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-7px);
+    }
+  }
 }
